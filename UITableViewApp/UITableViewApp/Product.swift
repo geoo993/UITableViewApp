@@ -22,6 +22,7 @@ public enum ProductRating
 
 public enum Genres
 {
+    case None
     case Biography
     case Crime
     case Adventure

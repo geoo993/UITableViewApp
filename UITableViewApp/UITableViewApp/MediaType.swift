@@ -39,7 +39,7 @@ class MediaType {
         
         let musicMedia = MediaType(title: "Music", description: "", imageName: "music.jpg")
         
-        return [filmMedia, tvSeriesMedia, videoGamesMedia, musicMedia, booksMedia]
+        return [filmMedia, videoGamesMedia, tvSeriesMedia, musicMedia, booksMedia]
         
     }
     

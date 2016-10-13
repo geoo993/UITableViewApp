@@ -24,7 +24,7 @@ class ProductLine {
     class func productLines() -> [ProductLine]
     {
     
-        return [self.films(), self.videoGames()]
+        return [self.films(), self.videoGames(), self.tvSeries(), self.music (), self.books()]
     }
     
     private class func films () -> ProductLine
@@ -42,7 +42,7 @@ class ProductLine {
         
         products.append(Product(title: "Woman In Gold", description: "Sixty years after fleeing Vienna, Maria Altmann (Helen Mirren), an elderly Jewish woman, attempts to reclaim family possessions that were seized by the Nazis. Among them is a famous portrait of Maria's beloved Aunt Adele: Gustave Klimt's \"Portrait of Adele Bloch-Bauer I.\" With the help of young lawyer Randy Schoeberg (Ryan Reynolds), Maria embarks upon a lengthy legal battle to recover this painting and several others, but it will not be easy, for Austria considers them national treasures.",imageName: "WomanInGold.jpg", year: 2015, rating: ProductRating.Outstanding, genres: [Genres.Biography]))
         
-        return ProductLine(productType: "Films", includedProducts: products)
+        return ProductLine(productType: "Movies", includedProducts: products)
         
     }
     
@@ -57,14 +57,25 @@ class ProductLine {
         return ProductLine(productType: "Video Games", includedProducts: products)
     }
     
-    //private class func books () -> ProductLine
-    //{
-        
-    //}
+    private class func books () -> ProductLine
+    {
+        var products = [Product]()
+        products.append(Product(title: "No Book", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None]))
+        return ProductLine(productType: "Books", includedProducts: products)
+    }
     
-    //private class func tvSeries () -> ProductLine
-    //{
-        
-    //}
+    private class func tvSeries () -> ProductLine
+    {
+        var products = [Product]()
+        products.append(Product(title: "No TV Series", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None]))
+        return ProductLine(productType: "TV Series", includedProducts: products)
+    }
+    
+    private class func music () -> ProductLine
+    {
+        var products = [Product]()
+        products.append(Product(title: "No Music", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None]))
+        return ProductLine(productType: "Music", includedProducts: products)
+    }
     
 }

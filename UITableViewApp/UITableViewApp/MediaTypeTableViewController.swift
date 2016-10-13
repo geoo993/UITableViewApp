@@ -8,16 +8,18 @@
 
 import Foundation
 import UIKit
+import RxCocoa
+import RxSwift
+
 
 class MediaTypeTableViewController: UITableViewController {
 
-    let media = 0
-    var mediaTypesList : [String] = ["Movies", "TV Series", "Video Games", "Books", "Music"]
     
     lazy var mediaTypes : [MediaType] = {
         return MediaType.AllMedias() 
     }()
     
+    var mediaTypesTitle : [String] = ["Movie", "Video Game", "TV Serie", "Music", "Book"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +54,7 @@ class MediaTypeTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Media Type", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Media Type Cell", forIndexPath: indexPath)
         //let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Media Type")
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         cell.selectionStyle = UITableViewCellSelectionStyle.Blue
@@ -66,7 +68,8 @@ class MediaTypeTableViewController: UITableViewController {
         cell.textLabel?.text = media.title
         cell.detailTextLabel?.text = media.description
         cell.imageView?.image = media.image
-      
+        
+        
         return cell
     }
     
@@ -106,14 +109,68 @@ class MediaTypeTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        guard 
+        let indexPath : NSIndexPath = self.tableView.indexPathForSelectedRow,
+        let destinationViewController = segue.destinationViewController as? ProductTableViewController else { print("Cant Product Table View Controller or index path is wrong"); return }
+        
+        
+        var products : [Product] {
+            var productLines = ProductLine.productLines()
+            return productLines[indexPath.row].products
+        }
+        
+        var productLines = ProductLine.productLines()
+        destinationViewController.mediaTypeTitle = mediaTypesTitle[indexPath.row]
+        destinationViewController.media = mediaTypes[indexPath.row].title
+        destinationViewController.getProducts = productLines[indexPath.row].products
+        print(destinationViewController, indexPath)
+        
     }
-    */
+    
+    func chosingMedia (mediaChosen: String) -> Int {
+        
+        switch mediaChosen {
+        case "Movies":
+            return 0
+        case "TV Series":
+            return 1
+        case "Video Games":
+            return 2
+        case "Music":
+            return 3
+        case "Books":
+            return 4
+        default:
+            return 0
+        }
+        
+    }
+    
+    func chosingMediaWithIndexPath (index: Int) -> String {
+        
+        switch index {
+        case 0:
+            return "Movies"
+        case 1:
+            return "TV Series"
+        case 2:
+            return "Video Games"
+        case 3:
+            return "Music"
+        case 4:
+            return "Books"
+        default:
+            return ""
+        }
+        
+    }
 
 }

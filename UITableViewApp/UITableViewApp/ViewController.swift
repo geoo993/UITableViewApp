@@ -16,13 +16,13 @@ class ViewController: UIViewController {
 
     var disposeBag = DisposeBag()
     
-    var msuInt : Observable<Int> = Variable(0).asObservable()
+    //var msuInt : Observable<Int> = Variable(0).asObservable()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.view.backgroundColor = UIColor.randomColor()
+        //self.view.backgroundColor = UIColor.randomColor()
     }
 
     override func didReceiveMemoryWarning() {

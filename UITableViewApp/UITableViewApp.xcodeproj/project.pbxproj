@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C7837C371DAED81B00D63851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7837C361DAED81B00D63851 /* AppDelegate.swift */; };
-		C7837C391DAED81B00D63851 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7837C381DAED81B00D63851 /* ViewController.swift */; };
+		C7837C391DAED81B00D63851 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7837C381DAED81B00D63851 /* PageViewController.swift */; };
 		C7837C3C1DAED81B00D63851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7837C3A1DAED81B00D63851 /* Main.storyboard */; };
 		C7837C3E1DAED81B00D63851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7837C3D1DAED81B00D63851 /* Assets.xcassets */; };
 		C7837C411DAED81B00D63851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7837C3F1DAED81B00D63851 /* LaunchScreen.storyboard */; };
@@ -31,7 +31,7 @@
 		C7837C7E1DAED82C00D63851 /* MalcolmX.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7837C591DAED82C00D63851 /* MalcolmX.jpg */; };
 		C7837C7F1DAED82C00D63851 /* MenOfHonor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7837C5A1DAED82C00D63851 /* MenOfHonor.jpg */; };
 		C7837C801DAED82C00D63851 /* film.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7837C5B1DAED82C00D63851 /* film.jpg */; };
-		C7837C811DAED82C00D63851 /* NoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C7837C5C1DAED82C00D63851 /* NoImage.png */; };
+		C7837C811DAED82C00D63851 /* noImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7837C5C1DAED82C00D63851 /* noImage2.png */; };
 		C7837C821DAED82C00D63851 /* PayItForward.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7837C5D1DAED82C00D63851 /* PayItForward.jpg */; };
 		C7837C831DAED82C00D63851 /* RagingBull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7837C5E1DAED82C00D63851 /* RagingBull.jpg */; };
 		C7837C841DAED82C00D63851 /* SchindlersList.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7837C5F1DAED82C00D63851 /* SchindlersList.jpg */; };
@@ -71,9 +71,12 @@
 		C7E227CC1DAF8BA90078A39C /* music.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7E227C71DAF8BA90078A39C /* music.jpg */; };
 		C7E227CD1DAF8BA90078A39C /* tvSeries.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7E227C81DAF8BA90078A39C /* tvSeries.jpg */; };
 		C7E227CE1DAF8BA90078A39C /* books.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7E227C91DAF8BA90078A39C /* books.jpg */; };
-		C7E227CF1DAF8BA90078A39C /* noImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7E227CA1DAF8BA90078A39C /* noImage.jpg */; };
 		C7E227D01DAF8BA90078A39C /* videoGame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7E227CB1DAF8BA90078A39C /* videoGame.jpg */; };
 		C7E227D21DAF8C7A0078A39C /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E227D11DAF8C7A0078A39C /* MediaType.swift */; };
+		C7E227D41DAF93DE0078A39C /* ProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E227D31DAF93DE0078A39C /* ProductTableViewController.swift */; };
+		C7E227EA1DAF9A180078A39C /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E227DF1DAF9A010078A39C /* XCGLogger.framework */; };
+		C7E227EB1DAF9A180078A39C /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7E227DF1DAF9A010078A39C /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7E227F51DAFB4880078A39C /* noImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7E227F41DAFB4880078A39C /* noImage.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +255,55 @@
 			remoteGlobalIDString = C80938F51B8A71760088E94D;
 			remoteInfo = "RxCocoa-iOS";
 		};
+		C7E227DE1DAF9A010078A39C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55E3EE4519D76F280068C3A7;
+			remoteInfo = "XCGLogger (iOS)";
+		};
+		C7E227E01DAF9A010078A39C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 554DF41719D76FE7005708BE;
+			remoteInfo = "XCGLogger (OS X)";
+		};
+		C7E227E21DAF9A010078A39C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 70CB94201B99E728007802FF;
+			remoteInfo = "XCGLogger (watchOS)";
+		};
+		C7E227E41DAF9A010078A39C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5515A3DF1BA119FA0047BA31;
+			remoteInfo = "XCGLogger (tvOS)";
+		};
+		C7E227E61DAF9A010078A39C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55E3EE5019D76F280068C3A7;
+			remoteInfo = "XCGLoggerTests (iOS)";
+		};
+		C7E227E81DAF9A010078A39C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55BB1F011B79DC7500709779;
+			remoteInfo = "XCGLoggerTests (OS X)";
+		};
+		C7E227EC1DAF9A180078A39C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 55E3EE4419D76F280068C3A7;
+			remoteInfo = "XCGLogger (iOS)";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -262,6 +314,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C7837D8B1DAEDD6700D63851 /* RxCocoa.framework in Embed Frameworks */,
+				C7E227EB1DAF9A180078A39C /* XCGLogger.framework in Embed Frameworks */,
 				C7837D871DAEDD5800D63851 /* RxSwift.framework in Embed Frameworks */,
 				C7837D821DAEDD4700D63851 /* EasyAnimation.framework in Embed Frameworks */,
 			);
@@ -273,7 +326,7 @@
 /* Begin PBXFileReference section */
 		C7837C331DAED81B00D63851 /* UITableViewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITableViewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7837C361DAED81B00D63851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7837C381DAED81B00D63851 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C7837C381DAED81B00D63851 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		C7837C3B1DAED81B00D63851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7837C3D1DAED81B00D63851 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7837C401DAED81B00D63851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -297,7 +350,7 @@
 		C7837C591DAED82C00D63851 /* MalcolmX.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MalcolmX.jpg; sourceTree = "<group>"; };
 		C7837C5A1DAED82C00D63851 /* MenOfHonor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MenOfHonor.jpg; sourceTree = "<group>"; };
 		C7837C5B1DAED82C00D63851 /* film.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = film.jpg; sourceTree = "<group>"; };
-		C7837C5C1DAED82C00D63851 /* NoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoImage.png; sourceTree = "<group>"; };
+		C7837C5C1DAED82C00D63851 /* noImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImage2.png; sourceTree = "<group>"; };
 		C7837C5D1DAED82C00D63851 /* PayItForward.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PayItForward.jpg; sourceTree = "<group>"; };
 		C7837C5E1DAED82C00D63851 /* RagingBull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RagingBull.jpg; sourceTree = "<group>"; };
 		C7837C5F1DAED82C00D63851 /* SchindlersList.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SchindlersList.jpg; sourceTree = "<group>"; };
@@ -333,9 +386,11 @@
 		C7E227C71DAF8BA90078A39C /* music.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = music.jpg; sourceTree = "<group>"; };
 		C7E227C81DAF8BA90078A39C /* tvSeries.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tvSeries.jpg; sourceTree = "<group>"; };
 		C7E227C91DAF8BA90078A39C /* books.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = books.jpg; sourceTree = "<group>"; };
-		C7E227CA1DAF8BA90078A39C /* noImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noImage.jpg; sourceTree = "<group>"; };
 		C7E227CB1DAF8BA90078A39C /* videoGame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = videoGame.jpg; sourceTree = "<group>"; };
 		C7E227D11DAF8C7A0078A39C /* MediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
+		C7E227D31DAF93DE0078A39C /* ProductTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewController.swift; sourceTree = "<group>"; };
+		C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCGLogger.xcodeproj; path = Carthage/Checkouts/XCGLogger/XCGLogger/Library/XCGLogger.xcodeproj; sourceTree = "<group>"; };
+		C7E227F41DAFB4880078A39C /* noImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noImage.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +398,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7E227EA1DAF9A180078A39C /* XCGLogger.framework in Frameworks */,
 				C7837D8F1DAEDDE500D63851 /* CoreGraphics.framework in Frameworks */,
 				C7837D8A1DAEDD6700D63851 /* RxCocoa.framework in Frameworks */,
 				C7837D861DAEDD5800D63851 /* RxSwift.framework in Frameworks */,
@@ -376,9 +432,10 @@
 			children = (
 				C7837D941DAEDEA700D63851 /* Extensions */,
 				C7837C361DAED81B00D63851 /* AppDelegate.swift */,
-				C7837C381DAED81B00D63851 /* ViewController.swift */,
+				C7837C381DAED81B00D63851 /* PageViewController.swift */,
 				C7837DF11DAEE9BB00D63851 /* FilmsTableViewController.swift */,
 				C7E227C51DAF82360078A39C /* MediaTypeTableViewController.swift */,
+				C7E227D31DAF93DE0078A39C /* ProductTableViewController.swift */,
 				C7837C3A1DAED81B00D63851 /* Main.storyboard */,
 				C7837C3D1DAED81B00D63851 /* Assets.xcassets */,
 				C7837E061DAEEABD00D63851 /* Model */,
@@ -398,7 +455,7 @@
 				C7E227C71DAF8BA90078A39C /* music.jpg */,
 				C7E227C81DAF8BA90078A39C /* tvSeries.jpg */,
 				C7E227C91DAF8BA90078A39C /* books.jpg */,
-				C7E227CA1DAF8BA90078A39C /* noImage.jpg */,
+				C7E227F41DAFB4880078A39C /* noImage.jpg */,
 				C7E227CB1DAF8BA90078A39C /* videoGame.jpg */,
 				C7837C4C1DAED82C00D63851 /* AmericanSniper.jpg */,
 				C7837C4D1DAED82C00D63851 /* AMostViolentYear.jpg */,
@@ -416,7 +473,7 @@
 				C7837C591DAED82C00D63851 /* MalcolmX.jpg */,
 				C7837C5A1DAED82C00D63851 /* MenOfHonor.jpg */,
 				C7837C5B1DAED82C00D63851 /* film.jpg */,
-				C7837C5C1DAED82C00D63851 /* NoImage.png */,
+				C7837C5C1DAED82C00D63851 /* noImage2.png */,
 				C7837E0B1DAEF93900D63851 /* Uncharted4.jpg */,
 				C7837E0C1DAEF93900D63851 /* QuantumBreak.jpg */,
 				C7837E0D1DAEF93900D63851 /* NoMansSky.jpg */,
@@ -481,6 +538,7 @@
 		C7837D771DAEDCED00D63851 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */,
 				C7837D8E1DAEDDE500D63851 /* CoreGraphics.framework */,
 				C7837D781DAEDD1E00D63851 /* EasyAnimation.xcodeproj */,
 				C7837D381DAEDCD400D63851 /* Rx.xcodeproj */,
@@ -516,6 +574,19 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		C7E227D61DAF9A000078A39C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7E227DF1DAF9A010078A39C /* XCGLogger.framework */,
+				C7E227E11DAF9A010078A39C /* XCGLogger.framework */,
+				C7E227E31DAF9A010078A39C /* XCGLogger.framework */,
+				C7E227E51DAF9A010078A39C /* XCGLogger.framework */,
+				C7E227E71DAF9A010078A39C /* XCGLoggerTests (iOS).xctest */,
+				C7E227E91DAF9A010078A39C /* XCGLoggerTests (OS X).xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -534,6 +605,7 @@
 				C7837D841DAEDD4700D63851 /* PBXTargetDependency */,
 				C7837D891DAEDD5800D63851 /* PBXTargetDependency */,
 				C7837D8D1DAEDD6800D63851 /* PBXTargetDependency */,
+				C7E227ED1DAF9A180078A39C /* PBXTargetDependency */,
 			);
 			name = UITableViewApp;
 			productName = UITableViewApp;
@@ -574,6 +646,10 @@
 				{
 					ProductGroup = C7837D391DAEDCD400D63851 /* Products */;
 					ProjectRef = C7837D381DAEDCD400D63851 /* Rx.xcodeproj */;
+				},
+				{
+					ProductGroup = C7E227D61DAF9A000078A39C /* Products */;
+					ProjectRef = C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -738,6 +814,48 @@
 			remoteRef = C7837D7F1DAEDD1E00D63851 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C7E227DF1DAF9A010078A39C /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = C7E227DE1DAF9A010078A39C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7E227E11DAF9A010078A39C /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = C7E227E01DAF9A010078A39C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7E227E31DAF9A010078A39C /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = C7E227E21DAF9A010078A39C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7E227E51DAF9A010078A39C /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = C7E227E41DAF9A010078A39C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7E227E71DAF9A010078A39C /* XCGLoggerTests (iOS).xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "XCGLoggerTests (iOS).xctest";
+			remoteRef = C7E227E61DAF9A010078A39C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7E227E91DAF9A010078A39C /* XCGLoggerTests (OS X).xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "XCGLoggerTests (OS X).xctest";
+			remoteRef = C7E227E81DAF9A010078A39C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -747,7 +865,6 @@
 			files = (
 				C7E227CD1DAF8BA90078A39C /* tvSeries.jpg in Resources */,
 				C7837E121DAEF93900D63851 /* Doom.jpg in Resources */,
-				C7E227CF1DAF8BA90078A39C /* noImage.jpg in Resources */,
 				C7837C6F1DAED82C00D63851 /* Ali.jpg in Resources */,
 				C7837C991DAED87C00D63851 /* Cartfile.resolved in Resources */,
 				C7837C871DAED82C00D63851 /* TheBigShort.jpg in Resources */,
@@ -755,6 +872,7 @@
 				C7837C901DAED82C00D63851 /* Tracks.jpg in Resources */,
 				C7837C801DAED82C00D63851 /* film.jpg in Resources */,
 				C7837C851DAED82C00D63851 /* StraightOuttaCompton.jpg in Resources */,
+				C7E227F51DAFB4880078A39C /* noImage.jpg in Resources */,
 				C7837C821DAED82C00D63851 /* PayItForward.jpg in Resources */,
 				C7837C721DAED82C00D63851 /* AMostViolentYear.jpg in Resources */,
 				C7837C7A1DAED82C00D63851 /* FreedomWriters.jpg in Resources */,
@@ -775,7 +893,7 @@
 				C7837C921DAED82C00D63851 /* WomanInGold.jpg in Resources */,
 				C7837C7B1DAED82C00D63851 /* GlengarryGlenRoss.jpg in Resources */,
 				C7837C741DAED82C00D63851 /* BoyHood.jpg in Resources */,
-				C7837C811DAED82C00D63851 /* NoImage.png in Resources */,
+				C7837C811DAED82C00D63851 /* noImage2.png in Resources */,
 				C7837C8C1DAED82C00D63851 /* TheWayBack.jpg in Resources */,
 				C7837C841DAED82C00D63851 /* SchindlersList.jpg in Resources */,
 				C7E227D01DAF8BA90078A39C /* videoGame.jpg in Resources */,
@@ -808,8 +926,9 @@
 			files = (
 				C7E227D21DAF8C7A0078A39C /* MediaType.swift in Sources */,
 				C7837D981DAEDEBC00D63851 /* UIKit+Ext.swift in Sources */,
-				C7837C391DAED81B00D63851 /* ViewController.swift in Sources */,
+				C7837C391DAED81B00D63851 /* PageViewController.swift in Sources */,
 				C7837C371DAED81B00D63851 /* AppDelegate.swift in Sources */,
+				C7E227D41DAF93DE0078A39C /* ProductTableViewController.swift in Sources */,
 				C7837D971DAEDEBC00D63851 /* Math+Ext.swift in Sources */,
 				C7837DF21DAEE9BB00D63851 /* FilmsTableViewController.swift in Sources */,
 				C7837E081DAEEAD100D63851 /* Product.swift in Sources */,
@@ -835,6 +954,11 @@
 			isa = PBXTargetDependency;
 			name = "RxCocoa-iOS";
 			targetProxy = C7837D8C1DAEDD6800D63851 /* PBXContainerItemProxy */;
+		};
+		C7E227ED1DAF9A180078A39C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "XCGLogger (iOS)";
+			targetProxy = C7E227EC1DAF9A180078A39C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

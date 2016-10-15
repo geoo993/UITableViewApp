@@ -1,0 +1,3 @@
+github "icanzilb/EasyAnimation" "1.0.5"
+github "ReactiveX/RxSwift" "2.6.0"
+github "realm/realm-cocoa" "v0.98.0"

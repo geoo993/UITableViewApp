@@ -54,7 +54,7 @@ class Product {
         if let img = UIImage(named: imageName) {
             image = img
         }else {
-            image = UIImage(named: "noImage.jpg") ?? UIImage() 
+            image = UIImage(named: "noImage") ?? UIImage() 
         }
         self.year = year
         self.rating = rating

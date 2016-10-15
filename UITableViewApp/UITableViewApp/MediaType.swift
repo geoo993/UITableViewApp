@@ -22,24 +22,26 @@ class MediaType {
         if let img = UIImage(named: imageName) {
             image = img
         }else {
-            image = UIImage(named: "noImage.jpg") ?? UIImage() 
+            image = UIImage(named: "noImage") ?? UIImage() 
         }
         
     }
     
     class func AllMedias() -> [MediaType]{
         
-        let filmMedia = MediaType(title: "Movies", description: "", imageName: "film.jpg")
+        let filmMedia = MediaType(title: "Movies", description: "", imageName: "film")
         
-        let booksMedia = MediaType(title: "Books", description: "", imageName: "books.jpg")
+        let booksMedia = MediaType(title: "Books", description: "", imageName: "books")
         
-        let tvSeriesMedia = MediaType(title: "Tv Series", description: "", imageName: "tvSeries.jpg")
+        let tvSeriesMedia = MediaType(title: "Tv Series", description: "", imageName: "tvSeries")
         
-        let videoGamesMedia = MediaType(title: "Video Games", description: "", imageName: "videoGame.jpg")
+        let videoGamesMedia = MediaType(title: "Video Games", description: "", imageName: "videoGame")
         
-        let musicMedia = MediaType(title: "Music", description: "", imageName: "music.jpg")
+        let musicMedia = MediaType(title: "Music", description: "", imageName: "music")
         
-        return [filmMedia, videoGamesMedia, tvSeriesMedia, musicMedia, booksMedia]
+        let countriesMedia = MediaType(title: "Countries", description: "", imageName: "globe")
+        
+        return [filmMedia, videoGamesMedia, tvSeriesMedia, musicMedia, booksMedia, countriesMedia]
         
     }
     

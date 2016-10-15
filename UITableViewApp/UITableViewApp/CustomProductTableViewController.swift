@@ -10,18 +10,28 @@ import Foundation
 import UIKit
 
 
-class NewTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CustomProductTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var media = String()
+    var mediaTypeTitle = String()
+    var getProducts = [Product]()
+    
+    var tableView = UITableView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.randomColor()
+        //self.view.backgroundColor = UIColor.randomColor()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.navigationItem.title = media
+        //self.tableView.rowHeight = UITableViewAutomaticDimension 
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,39 +43,56 @@ class NewTableViewController: UIViewController, UITableViewDelegate, UITableView
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        
+        self.tableView = tableView
         return 1
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        self.tableView = tableView
+        return getProducts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        self.tableView = tableView
         
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("NewCell", forIndexPath: indexPath) as? MediaTableViewCell
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("Product Cell", forIndexPath: indexPath) as? MediaTableViewCell
          //let cell = tableView.dequeueReusableCellWithIdentifier("NewCell") as? aCell 
         else 
         { print("No Cell found"); return UITableViewCell()}
         
-        //// Configure the cell...
-
-        ////titleText.text = product.title
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell.selectionStyle = UITableViewCellSelectionStyle.Blue
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         
-        ////descriptionText.text = product.description
+        let product = getProducts[indexPath.row]
+        cell.titleLabel.text = product.title
         
-        ////let img = product.image.imageWithSize(CGSize(width: 50,height: 100), extraMargin: 0)
-        ////imgView.image = img
+        cell.descriptionLabel.text = product.description
+        cell.descriptionLabel.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         
-        cell.imgView.image = UIImage(named: "Casino.jpg") 
+        let img = product.image.imageWithSize(CGSize(width: 50,height: 100), extraMargin: 0)
+        cell.imgView.image = img
+        
+        
         return cell
     }
+   
     
-    //func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat 
-    //{
-        //return 200.0;//Choose your custom row height
-    //}
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat 
+    {
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("Product Cell")
+            else 
+        { print("No Cell found"); return CGFloat()}
+        
+        
+        let size: CGSize = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        
+        let height = size.height
+        return height //200.0;//Choose your custom row height
+    }
     
     /*
     // Override to support conditional editing of the table view.
@@ -103,12 +130,46 @@ class NewTableViewController: UIViewController, UITableViewDelegate, UITableView
     */
 
     
+    //performSegueWithIdentifier(identifier: "", sender: AnyObject?)
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        
+        if let identifier = segue.identifier {
+            
+            switch identifier {
+                case "Show Detail":
+                    
+                    guard 
+                    let cell = sender as? UITableViewCell,
+                    let indexPath : NSIndexPath = self.tableView.indexPathForCell(cell),
+                        //let indexPath : NSIndexPath = self.tableView.indexPathForSelectedRow,
+                    let destinationViewController = segue.destinationViewController as? CustomMediaDetailedViewController else { print("Cant Page View Controller or index path is wrong"); return }
+                    
+                    mediaAtInexPath(destinationViewController, indexPath: indexPath)
+                    
+                
+            default:
+                print("No Identifier")
+                break
+            }
+            
+        }
+        
+    }
+    
+    
+   // Mark: - Helper method
+    func mediaAtInexPath(destinationViewController: CustomMediaDetailedViewController, indexPath : NSIndexPath ){
+        
+        destinationViewController.heading = mediaTypeTitle
+        //destinationViewController.titleText = getProducts[self.indexPath.row].title
+        destinationViewController.image = getProducts[indexPath.row].image
+        destinationViewController.descriptionText = getProducts[indexPath.row].description
     }
     
 

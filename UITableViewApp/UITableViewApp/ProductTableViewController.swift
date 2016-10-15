@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Foundation
 
 class ProductTableViewController: UITableViewController {
 
-    
    
+    
     var media = String()
     var mediaTypeTitle = String()
     var getProducts = [Product]()
@@ -53,15 +54,41 @@ class ProductTableViewController: UITableViewController {
         cell.selectionStyle = UITableViewCellSelectionStyle.Blue
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         // Configure the cell...
+        
+        // populate the data in your cell as desired
+        //cell2.menuListLabel.text = "some text"
+        //cell2.menuListImage.image = UIImage(named: "some image")
 
+        
+        
         let product = getProducts[indexPath.row]
+        
+        //cell.frame = CGRectMake(0,0,320,400);
+        //var cellRect = tableView.rectForRowAtIndexPath(indexPath)
+        //cellRect = CGRectMake(cellRect.origin.x - tableView.contentOffset.x, cellRect.origin.y - tableView.contentOffset.y, cellRect.size.width, cellRect.size.height);
+        
+       
         cell.textLabel?.text = product.title
+        
+        let constrainedSize = CGSizeMake(cell.detailTextLabel!.frame.size.width, 200)
+        var cframe = cell.detailTextLabel!.frame;
+        cframe.size.height = constrainedSize.height;
+        cell.detailTextLabel?.frame = cframe;
+        cell.detailTextLabel?.numberOfLines = 0;
         cell.detailTextLabel?.text = product.description
-        cell.imageView?.image = product.image
+        
+        let img = product.image.imageWithSize(CGSize(width: 50,height: 100), extraMargin: 0)
+        cell.imageView?.image = img
+        
+    
         
         return cell
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat 
+    {
+        return 200.0;//Choose your custom row height
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -108,7 +135,7 @@ class ProductTableViewController: UITableViewController {
         
         guard 
             let indexPath : NSIndexPath = self.tableView.indexPathForSelectedRow,
-            let destinationViewController = segue.destinationViewController as? PageViewController else { print("Cant Page View Controller or index path is wrong"); return }
+            let destinationViewController = segue.destinationViewController as? PageViewController else { print("Cant Find Page View Controller or index path is wrong"); return }
         
         
         destinationViewController.heading = mediaTypeTitle

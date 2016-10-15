@@ -11,16 +11,23 @@ import UIKit
 
 class CustomMediaDetailedViewController: UIViewController {
 
+    @IBOutlet weak var detailedImageView: UIImageView!
+    @IBOutlet weak var detailedTextView: UITextView!
+    
     
     var heading = ""
+    var descriptionText = String()
+    var image = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.randomColor()
+       // self.view.backgroundColor = UIColor.randomColor()
 
         self.navigationItem.title = heading
-        // Do any additional setup after loading the view.
+        
+        detailedImageView.image = image
+        detailedTextView.text = descriptionText
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,6 +12,8 @@ import RxCocoa
 import RxSwift
 
 
+
+
 class MediaTypeTableViewController: UITableViewController {
 
     
@@ -19,7 +21,7 @@ class MediaTypeTableViewController: UITableViewController {
         return MediaType.AllMedias() 
     }()
     
-    var mediaTypesTitle : [String] = ["Movie", "Video Game", "TV Serie", "Music", "Book"]
+    var mediaTypesTitle : [String] = ["Movie", "Video Game", "TV Serie", "Music", "Book", "Countries"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,7 @@ class MediaTypeTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+   
         let cell = tableView.dequeueReusableCellWithIdentifier("Media Type Cell", forIndexPath: indexPath)
         //let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Media Type")
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
@@ -64,13 +67,19 @@ class MediaTypeTableViewController: UITableViewController {
         
         let media = mediaTypes[indexPath.row]
         
+        let img = media.image.imageWithSize(CGSize(width: 50,height: 50))
         
         cell.textLabel?.text = media.title
         cell.detailTextLabel?.text = media.description
-        cell.imageView?.image = media.image
+        cell.imageView?.image = img
         
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat 
+    {
+        return 100.0;//Choose your custom row height
     }
     
 
@@ -119,7 +128,10 @@ class MediaTypeTableViewController: UITableViewController {
         
         guard 
         let indexPath : NSIndexPath = self.tableView.indexPathForSelectedRow,
-        let destinationViewController = segue.destinationViewController as? ProductTableViewController else { print("Cant Product Table View Controller or index path is wrong"); return }
+        let destinationViewController = segue.destinationViewController as? 
+            //ProductTableViewController 
+            CustomProductTableViewController
+            else { print("Cant Find Product Table View Controller or index path is wrong"); return }
         
         
         var products : [Product] {
@@ -131,7 +143,7 @@ class MediaTypeTableViewController: UITableViewController {
         destinationViewController.mediaTypeTitle = mediaTypesTitle[indexPath.row]
         destinationViewController.media = mediaTypes[indexPath.row].title
         destinationViewController.getProducts = productLines[indexPath.row].products
-        print(destinationViewController, indexPath)
+        
         
     }
     

@@ -47,7 +47,7 @@ extension UIImage {
     ///
     func imageWithSize(size: CGSize, extraMargin: CGFloat) -> UIImage {
         
-        let imageSize = CGSize(width: size.width + extraMargin * 2, height: size.height + extraMargin * 2)
+        let imageSize = CGSize(width: size.width + extraMargin * 1.5, height: size.height + extraMargin * 1.5)
         
         UIGraphicsBeginImageContextWithOptions(imageSize, false, UIScreen.mainScreen().scale);
         let drawingRect = CGRect(x: extraMargin, y: extraMargin, width: size.width, height: size.height)

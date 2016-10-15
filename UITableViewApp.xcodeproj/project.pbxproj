@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C724D3E21DB2268F00881C42 /* CustomProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724D3E11DB2268F00881C42 /* CustomProductTableViewController.swift */; };
-		C7837C3C1DAED81B00D63851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7837C3A1DAED81B00D63851 /* Main.storyboard */; };
 		C7837C3E1DAED81B00D63851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7837C3D1DAED81B00D63851 /* Assets.xcassets */; };
 		C7837E0A1DAEEFCD00D63851 /* ProductLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7837E091DAEEFCD00D63851 /* ProductLine.swift */; };
 		C79DF33A1DB2C79B00F42B3C /* Math+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DF3391DB2C79B00F42B3C /* Math+Ext.swift */; };
@@ -21,12 +20,12 @@
 		C79DF34A1DB2C84E00F42B3C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DF3491DB2C84E00F42B3C /* Product.swift */; };
 		C79DF34D1DB2C88200F42B3C /* FilmsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DF34B1DB2C88200F42B3C /* FilmsTableViewController.swift */; };
 		C79DF34E1DB2C88200F42B3C /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DF34C1DB2C88200F42B3C /* PageViewController.swift */; };
-		C79DF3571DB2C97200F42B3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79DF3561DB2C97200F42B3C /* Main.storyboard */; };
 		C7CE884F1DB25DDB00A6F02D /* CustomMediaDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CE884E1DB25DDB00A6F02D /* CustomMediaDetailedViewController.swift */; };
 		C7DB6A881DB2CA5E00BA5EA7 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = C7DB6A861DB2CA5E00BA5EA7 /* Cartfile */; };
 		C7DB6A891DB2CA5E00BA5EA7 /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = C7DB6A871DB2CA5E00BA5EA7 /* Cartfile.resolved */; };
 		C7E227C61DAF82360078A39C /* MediaTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E227C51DAF82360078A39C /* MediaTypeTableViewController.swift */; };
 		C7E227D41DAF93DE0078A39C /* ProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E227D31DAF93DE0078A39C /* ProductTableViewController.swift */; };
+		C7F046B91DB2CDC400705CC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F046B81DB2CDC400705CC7 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,7 +230,6 @@
 /* Begin PBXFileReference section */
 		C724D3E11DB2268F00881C42 /* CustomProductTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProductTableViewController.swift; sourceTree = "<group>"; };
 		C7837C331DAED81B00D63851 /* UITableViewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITableViewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7837C3B1DAED81B00D63851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7837C3D1DAED81B00D63851 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7837D381DAEDCD400D63851 /* Rx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rx.xcodeproj; path = Carthage/Checkouts/RxSwift/Rx.xcodeproj; sourceTree = "<group>"; };
 		C7837D781DAEDD1E00D63851 /* EasyAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EasyAnimation.xcodeproj; path = Carthage/Checkouts/EasyAnimation/EasyAnimation.xcodeproj; sourceTree = "<group>"; };
@@ -247,13 +245,13 @@
 		C79DF3491DB2C84E00F42B3C /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C79DF34B1DB2C88200F42B3C /* FilmsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmsTableViewController.swift; sourceTree = "<group>"; };
 		C79DF34C1DB2C88200F42B3C /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		C79DF3561DB2C97200F42B3C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C7CE884E1DB25DDB00A6F02D /* CustomMediaDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMediaDetailedViewController.swift; sourceTree = "<group>"; };
 		C7DB6A861DB2CA5E00BA5EA7 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		C7DB6A871DB2CA5E00BA5EA7 /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		C7E227C51DAF82360078A39C /* MediaTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTypeTableViewController.swift; sourceTree = "<group>"; };
 		C7E227D31DAF93DE0078A39C /* ProductTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewController.swift; sourceTree = "<group>"; };
 		C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCGLogger.xcodeproj; path = Carthage/Checkouts/XCGLogger/XCGLogger/Library/XCGLogger.xcodeproj; sourceTree = "<group>"; };
+		C7F046B81DB2CDC400705CC7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,8 +303,7 @@
 				C721A7A51DB263F60022F474 /* Controllers */,
 				C7837E061DAEEABD00D63851 /* Model */,
 				C79DF3431DB2C80600F42B3C /* AppDelegate.swift */,
-				C7837C3A1DAED81B00D63851 /* Main.storyboard */,
-				C79DF3561DB2C97200F42B3C /* Main.storyboard */,
+				C7F046B81DB2CDC400705CC7 /* Main.storyboard */,
 				C7837C3D1DAED81B00D63851 /* Assets.xcassets */,
 				C79DF3451DB2C81F00F42B3C /* Info.plist */,
 			);
@@ -435,6 +432,8 @@
 				TargetAttributes = {
 					C7837C321DAED81B00D63851 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 4Q93294747;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -675,11 +674,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7DB6A881DB2CA5E00BA5EA7 /* Cartfile in Resources */,
+				C7F046B91DB2CDC400705CC7 /* Main.storyboard in Resources */,
 				C7DB6A891DB2CA5E00BA5EA7 /* Cartfile.resolved in Resources */,
 				C7837C3E1DAED81B00D63851 /* Assets.xcassets in Resources */,
-				C79DF3571DB2C97200F42B3C /* Main.storyboard in Resources */,
 				C79DF3461DB2C81F00F42B3C /* Info.plist in Resources */,
-				C7837C3C1DAED81B00D63851 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,17 +706,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		C7837C3A1DAED81B00D63851 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C7837C3B1DAED81B00D63851 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C7837C431DAED81B00D63851 /* Debug */ = {
@@ -807,20 +794,24 @@
 		C7837C461DAED81B00D63851 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4Q93294747;
 				INFOPLIST_FILE = UITableViewApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UITableViewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		C7837C471DAED81B00D63851 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4Q93294747;
 				INFOPLIST_FILE = UITableViewApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UITableViewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

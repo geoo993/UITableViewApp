@@ -28,7 +28,7 @@ extension UIImage {
         let rect = CGRectMake(0.0, 0.0, size.width, size.height);
         drawInRect(rect)
         
-        let resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+        guard let resultingImage = UIGraphicsGetImageFromCurrentImageContext() else { print("UIGraphicsGetImageFromCurrentImageContext is Nil "); return UIImage() };
         UIGraphicsEndImageContext();
         
         return resultingImage
@@ -53,7 +53,7 @@ extension UIImage {
         let drawingRect = CGRect(x: extraMargin, y: extraMargin, width: size.width, height: size.height)
         drawInRect(drawingRect)
         
-        let resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+        guard let resultingImage = UIGraphicsGetImageFromCurrentImageContext() else { print("UIGraphicsGetImageFromCurrentImageContext is Nil "); return UIImage() };
         UIGraphicsEndImageContext();
         
         return resultingImage

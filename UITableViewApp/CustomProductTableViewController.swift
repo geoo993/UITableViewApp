@@ -18,8 +18,7 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
     var productShown = [Bool]()
     
     var tableView = UITableView()
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,13 +32,13 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
         self.navigationItem.title = media
         self.tableView.estimatedRowHeight = self.tableView.rowHeight
         self.tableView.rowHeight = UITableViewAutomaticDimension 
-        self.productShown = [Bool](count: getProducts.count, repeatedValue: false)
         
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,7 +80,7 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
         cell.descriptionLabel.text = product.description
         cell.descriptionLabel.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         
-        let img = product.image.imageWithSize(CGSize(width: 50,height: 100), extraMargin: 0)
+        let img = product.image
         cell.imgView.image = img
         
         
@@ -182,14 +181,14 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
                     
                     customMediaAtInexPath(destinationViewController, indexPath: indexPath)
                     
-                case "Show Detail On Page":
-                    
-                    guard 
-                        let cell = sender as? UITableViewCell,
-                        let indexPath : NSIndexPath = self.tableView.indexPathForCell(cell),
-                        let destinationViewController = segue.destinationViewController as? PageViewController else { print("Cant Find Page View Controller or index path is wrong"); return }
-                    
-                    mediaAtInexPath(destinationViewController, indexPath: indexPath)
+//                case "Show Detail On Page":
+//                    
+//                    guard 
+//                        let cell = sender as? UITableViewCell,
+//                        let indexPath : NSIndexPath = self.tableView.indexPathForCell(cell),
+//                        let destinationViewController = segue.destinationViewController as? PageViewController else { print("Cant Find Page View Controller or index path is wrong"); return }
+//                    
+//                    mediaAtInexPath(destinationViewController, indexPath: indexPath)
             default:
                 print("No Identifier")
                 break

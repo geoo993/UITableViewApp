@@ -21,39 +21,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wrc-q0-eoR">
-                                <frame key="frameInset" minY="64" width="600" height="230"/>
+                                <frame key="frameInset" minY="104" width="600" height="245"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jyd-5Y-HVQ">
-                                <frame key="frameInset" minX="20" minY="294" width="560" height="266"/>
+                                <frame key="frameInset" minX="20" minY="354" width="560" height="231"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="266" id="07b-gs-dB9"/>
+                                    <constraint firstAttribute="height" constant="231" id="07b-gs-dB9"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Lorem ipsum dolor sit" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HPQ-bq-Rbp">
+                                <frame key="frameInset" minX="20" minY="64" width="560" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CbF-0W-VDA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="wrc-q0-eoR" secondAttribute="trailing" id="3dc-GW-qEg"/>
-                            <constraint firstItem="wrc-q0-eoR" firstAttribute="top" secondItem="IEz-1T-VBg" secondAttribute="bottom" id="9gn-o3-8bW"/>
+                            <constraint firstItem="wrc-q0-eoR" firstAttribute="top" secondItem="HPQ-bq-Rbp" secondAttribute="bottom" id="5gt-3D-uct"/>
                             <constraint firstAttribute="trailing" secondItem="jyd-5Y-HVQ" secondAttribute="trailing" constant="20" id="PLb-P5-6Lt"/>
-                            <constraint firstItem="wrc-q0-eoR" firstAttribute="top" secondItem="IEz-1T-VBg" secondAttribute="bottom" id="Sno-Zd-yfZ"/>
-                            <constraint firstItem="jyd-5Y-HVQ" firstAttribute="top" secondItem="wrc-q0-eoR" secondAttribute="bottom" id="eMm-dE-947"/>
+                            <constraint firstItem="jyd-5Y-HVQ" firstAttribute="top" secondItem="wrc-q0-eoR" secondAttribute="bottom" constant="5" id="eMm-dE-947"/>
                             <constraint firstItem="jyd-5Y-HVQ" firstAttribute="leading" secondItem="fnc-2D-ail" secondAttribute="leading" constant="20" id="itq-hM-iGN"/>
-                            <constraint firstItem="y9W-F0-diT" firstAttribute="top" secondItem="jyd-5Y-HVQ" secondAttribute="bottom" constant="40" id="lBB-Kt-f7F"/>
+                            <constraint firstItem="HPQ-bq-Rbp" firstAttribute="leading" secondItem="fnc-2D-ail" secondAttribute="leading" constant="20" id="kBF-Ay-7OI"/>
+                            <constraint firstItem="y9W-F0-diT" firstAttribute="top" secondItem="jyd-5Y-HVQ" secondAttribute="bottom" constant="15" id="lBB-Kt-f7F"/>
+                            <constraint firstAttribute="trailing" secondItem="HPQ-bq-Rbp" secondAttribute="trailing" constant="20" id="nzI-mA-Zke"/>
+                            <constraint firstItem="HPQ-bq-Rbp" firstAttribute="top" secondItem="IEz-1T-VBg" secondAttribute="bottom" id="vuD-Bt-Mtc"/>
                             <constraint firstItem="wrc-q0-eoR" firstAttribute="leading" secondItem="fnc-2D-ail" secondAttribute="leading" id="zDT-sd-VW9"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="detailedImageView" destination="wrc-q0-eoR" id="fOt-0V-WDS"/>
                         <outlet property="detailedTextView" destination="jyd-5Y-HVQ" id="eYY-3o-6Vl"/>
+                        <outlet property="detailedTitleTextView" destination="HPQ-bq-Rbp" id="Xm7-zz-lkG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uag-tp-dcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18" y="1515"/>
+            <point key="canvasLocation" x="2086" y="1711"/>
         </scene>
         <!--Custom Product Table View Controller-->
         <scene sceneID="L1R-1b-tuE">
@@ -78,11 +90,11 @@
                                             <frame key="frameInset" width="567" height="144.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H06-dq-w64">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H06-dq-w64">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="eFI-1o-il9"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -115,7 +127,7 @@
                                             <outlet property="descriptionLabel" destination="E9R-NP-z3R" id="QLi-hd-sWx"/>
                                             <outlet property="imgView" destination="6UK-dQ-Rgs" id="1dX-tC-gIr"/>
                                             <outlet property="titleLabel" destination="H06-dq-w64" id="5Jl-2C-wXi"/>
-                                            <segue destination="Adj-Bc-eK2" kind="show" identifier="Show Detail" id="31z-Zn-eT1"/>
+                                            <segue destination="Adj-Bc-eK2" kind="show" identifier="Show Detail" id="1uf-he-FEe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -133,10 +145,13 @@
                             <constraint firstItem="bbQ-dm-0SM" firstAttribute="top" secondItem="i5D-S9-DGk" secondAttribute="top" id="szX-Bf-fLk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="FjL-vX-9On" kind="show" identifier="Show Detail On Page" id="M1j-Tl-YKP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72R-QZ-uam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973" y="1560"/>
+            <point key="canvasLocation" x="907" y="1540"/>
         </scene>
         <!--Description View Controller-->
         <scene sceneID="Crk-Wl-D0n">
@@ -155,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ezT-qq-G3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2025.5" y="1407.5"/>
+            <point key="canvasLocation" x="1448.5" y="2347.5"/>
         </scene>
         <!--Media Type Table View Controller-->
         <scene sceneID="uqn-d7-dO2">
@@ -241,9 +256,6 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="FjL-vX-9On" kind="show" id="FZf-iM-nL3"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

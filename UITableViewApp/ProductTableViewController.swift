@@ -77,7 +77,7 @@ class ProductTableViewController: UITableViewController {
         cell.detailTextLabel?.numberOfLines = 0;
         cell.detailTextLabel?.text = product.description
         
-        let img = product.image.imageWithSize(CGSize(width: 50,height: 100), extraMargin: 0)
+        let img = product.image//.imageWithSize(CGSize(width: 50,height: 100), extraMargin: 0)
         cell.imageView?.image = img
         
     

@@ -65,7 +65,7 @@ class MediaTypeTableViewController: UITableViewController {
         
         let media = mediaTypes[indexPath.row]
         
-        let img = media.image.imageWithSize(CGSize(width: 50,height: 50))
+        let img = media.image//.imageWithSize(CGSize(width: 50,height: 50))
         
         cell.textLabel?.text = media.title
         cell.detailTextLabel?.text = media.description
@@ -141,7 +141,7 @@ class MediaTypeTableViewController: UITableViewController {
         destinationViewController.mediaTypeTitle = mediaTypesTitle[indexPath.row]
         destinationViewController.media = mediaTypes[indexPath.row].title
         destinationViewController.getProducts = productLines[indexPath.row].products
-        
+        destinationViewController.productShown = [Bool](count: productLines[indexPath.row].products.count, repeatedValue: false)
         
     }
     

@@ -380,9 +380,9 @@
 			isa = PBXGroup;
 			children = (
 				C79DF3491DB2C84E00F42B3C /* Product.swift */,
-				C79DF33B1DB2C7B500F42B3C /* MediaTableViewCell.swift */,
 				C7837E091DAEEFCD00D63851 /* ProductLine.swift */,
 				C79DF3471DB2C83100F42B3C /* MediaType.swift */,
+				C79DF33B1DB2C7B500F42B3C /* MediaTableViewCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";

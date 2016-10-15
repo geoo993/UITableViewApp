@@ -11,7 +11,7 @@ import UIKit
 class PageViewController: UIViewController {
 
     
-    var heading = ""
+    var heading = String()
     
     let titleLabel = UILabel()
     var titleText = "Hello"

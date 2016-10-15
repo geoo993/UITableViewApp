@@ -145,9 +145,6 @@
                             <constraint firstItem="bbQ-dm-0SM" firstAttribute="top" secondItem="i5D-S9-DGk" secondAttribute="top" id="szX-Bf-fLk"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="FjL-vX-9On" kind="show" identifier="Show Detail On Page" id="M1j-Tl-YKP"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72R-QZ-uam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -214,7 +211,13 @@
                             <outlet property="delegate" destination="L7G-fE-NuX" id="58A-Sf-PVv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="f9z-Kc-vk0"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="f9z-Kc-vk0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="AEJ-pq-YDa">
+                            <connections>
+                                <action selector="editingWithSender:" destination="L7G-fE-NuX" id="9eN-wa-6Ma"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZn-tN-DPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,6 +15,7 @@ import UIKit
 class MediaTypeTableViewController: UITableViewController {
 
     
+    var productLines = ProductLine.productLines()
     lazy var mediaTypes : [MediaType] = {
         return MediaType.AllMedias() 
     }()
@@ -31,14 +32,75 @@ class MediaTypeTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Media Type Cell")
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableView.reloadData()
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func editing(sender: UIBarButtonItem) {
+        
+        if self.tableView.editing == true{
+            
+            self.tableView.setEditing(false, animated: true)
+            self.editButtonItem().style = UIBarButtonItemStyle.Plain
+            self.editButtonItem().title = "Edit"
+        }else{
+            self.tableView.setEditing(true, animated: true)
+            self.editButtonItem().style = UIBarButtonItemStyle.Done
+            self.editButtonItem().title = "Done"
+        }
+       
+    }
+    
+    
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.None
+    }
+    
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    // Override to support conditional rearranging of the table view.
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        
+        let product = mediaTypes[sourceIndexPath.row]
+        mediaTypes.removeAtIndex(sourceIndexPath.row)
+        mediaTypes.insert(product, atIndex: destinationIndexPath.row)
+        
+        let p = productLines[sourceIndexPath.row]
+        productLines.removeAtIndex(sourceIndexPath.row)
+        productLines.insert(p, atIndex: destinationIndexPath.row)
+        
+        self.tableView.reloadData()
+    }
+    
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -65,13 +127,11 @@ class MediaTypeTableViewController: UITableViewController {
         
         let media = mediaTypes[indexPath.row]
         
-        let img = media.image//.imageWithSize(CGSize(width: 50,height: 50))
+        let img = media.image.imageWithSize(CGSize(width: 80,height: 80), extraMargin: 0)
         
         cell.textLabel?.text = media.title
         cell.detailTextLabel?.text = media.description
-        cell.imageView?.image = img
-        
-        
+        cell.imageView?.image = img        
         return cell
     }
     
@@ -82,40 +142,16 @@ class MediaTypeTableViewController: UITableViewController {
     
 
     
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    
-
-    
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .Delete {
+//            // Delete the row from the data source
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//        } else if editingStyle == .Insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }    
+//    }
     
-
-    
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-
-
-    
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    
-
     
     // MARK: - Navigation
 
@@ -132,16 +168,16 @@ class MediaTypeTableViewController: UITableViewController {
             else { print("Cant Find Product Table View Controller or index path is wrong"); return }
         
         
-        var products : [Product] {
-            var productLines = ProductLine.productLines()
-            return productLines[indexPath.row].products
-        }
+//        var products : [Product] {
+//            var productLines = ProductLine.productLines()
+//            return productLines[indexPath.row].products
+//        }
         
-        var productLines = ProductLine.productLines()
         destinationViewController.mediaTypeTitle = mediaTypesTitle[indexPath.row]
         destinationViewController.media = mediaTypes[indexPath.row].title
         destinationViewController.getProducts = productLines[indexPath.row].products
         destinationViewController.productShown = [Bool](count: productLines[indexPath.row].products.count, repeatedValue: false)
+        
         
     }
     

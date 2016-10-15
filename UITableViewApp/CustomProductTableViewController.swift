@@ -18,16 +18,17 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
     var productShown = [Bool]()
     
     var tableView = UITableView()
+    
  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //self.view.backgroundColor = UIColor.randomColor()
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         //self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.navigationItem.title = media
         self.tableView.estimatedRowHeight = self.tableView.rowHeight
@@ -87,13 +88,66 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
         return cell
     }
    
+    // Override to support rearranging the table view.
+    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        
+        let product = getProducts[fromIndexPath.row]
+        getProducts.removeAtIndex(fromIndexPath.row)
+        getProducts.insert(product, atIndex: toIndexPath.row)
+    }
+    
+    // Override to support conditional rearranging of the table view.
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+        //Override to support conditional editing of the table view.
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        //Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
+            // add the action button you want to show when swiping on tableView's cell , in this case add the delete button.
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action , indexPath) -> Void in
+                
+                // Your delete code here.....
+                
+        })
+            
+        // You can set its properties like normal button
+        deleteAction.backgroundColor = UIColor.redColor()
+            
+        return [deleteAction]
+    }
+    
+    
+    // Override to support editing the table view.
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+    
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            getProducts.removeAtIndex(indexPath.row)
+            // Delete the row from the data source
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+        } else if editingStyle == UITableViewCellEditingStyle.Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            let product = Product(title: "No Entry", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None])
+            getProducts.insert(product, atIndex: indexPath.row)
+            
+            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic) 
+           
+        }    
+    }
+    
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat 
     {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("Product Cell")
             else 
         { print("No Cell found"); return CGFloat()}
-        
         
         let size: CGSize = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
         
@@ -108,7 +162,7 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
         if self.productShown[indexPath.row] == false {
             
             //cell.alpha = 0.0
-            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 50, 0.0)
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -300, 50, 0.0)
             cell.layer.transform = rotationTransform
             
             let resetToOriginalTransform = CATransform3DIdentity
@@ -124,38 +178,13 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
     }
     
     
-    
-    
-     //Override to support conditional editing of the table view.
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-         //Return false if you do not want the specified item to be editable.
-        return true
-    }
-    
-    // Override to support editing the table view.
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            
-            getProducts.removeAtIndex(indexPath.row)
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    
-    // Override to support rearranging the table view.
-    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
 
-    }
     
-    // Override to support conditional rearranging of the table view.
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
+    
+
+    
+    
+    
     
 
     
@@ -181,8 +210,14 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
                     
                     customMediaAtInexPath(destinationViewController, indexPath: indexPath)
                     
-//                case "Show Detail On Page":
-//                    
+                case "AddItem":
+                    
+                    let newIndexPath = NSIndexPath(forRow: getProducts.count, inSection: 0)
+                    getProducts.append( Product(title: "No Entry", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None]))
+                    
+                    tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: UITableViewRowAnimation.Bottom)
+                    
+                    
 //                    guard 
 //                        let cell = sender as? UITableViewCell,
 //                        let indexPath : NSIndexPath = self.tableView.indexPathForCell(cell),
@@ -194,6 +229,7 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
                 break
             }
             
+          
         }
         
     }
@@ -210,10 +246,10 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
     
     func mediaAtInexPath(destinationViewController: PageViewController, indexPath : NSIndexPath ){
       
-    destinationViewController.heading = mediaTypeTitle
-    destinationViewController.titleText = getProducts[indexPath.row].title
-    destinationViewController.image = getProducts[indexPath.row].image
-    destinationViewController.descriptionText = getProducts[indexPath.row].description
+        destinationViewController.heading = mediaTypeTitle
+        destinationViewController.titleText = getProducts[indexPath.row].title
+        destinationViewController.image = getProducts[indexPath.row].image
+        destinationViewController.descriptionText = getProducts[indexPath.row].description
     }
 
 }

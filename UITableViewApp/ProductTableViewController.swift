@@ -24,7 +24,7 @@ class ProductTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.navigationItem.title = media
     }
@@ -55,17 +55,8 @@ class ProductTableViewController: UITableViewController {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         // Configure the cell...
         
-        // populate the data in your cell as desired
-        //cell2.menuListLabel.text = "some text"
-        //cell2.menuListImage.image = UIImage(named: "some image")
-
-        
-        
+       
         let product = getProducts[indexPath.row]
-        
-        //cell.frame = CGRectMake(0,0,320,400);
-        //var cellRect = tableView.rectForRowAtIndexPath(indexPath)
-        //cellRect = CGRectMake(cellRect.origin.x - tableView.contentOffset.x, cellRect.origin.y - tableView.contentOffset.y, cellRect.size.width, cellRect.size.height);
         
        
         cell.textLabel?.text = "\(product.title) (\(product.year))"

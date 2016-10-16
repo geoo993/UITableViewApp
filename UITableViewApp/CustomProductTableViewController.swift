@@ -14,9 +14,7 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
 
     var media = String()
     var mediaTypeTitle = String()
-    var getProducts = [Product]()
     var productShown = [Bool]()
-    
     var tableView = UITableView()
     
  
@@ -28,17 +26,19 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
          //self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.navigationItem.title = media
         self.tableView.estimatedRowHeight = self.tableView.rowHeight
         self.tableView.rowHeight = UITableViewAutomaticDimension 
         
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.reloadData()
+        self.tableView.reloadData()
         
     }
 
@@ -46,54 +46,12 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        
-        self.tableView = tableView
-        return 1
-    }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        self.tableView = tableView
-        return getProducts.count
-    }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        self.tableView = tableView
-        
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("Product Cell", forIndexPath: indexPath) as? MediaTableViewCell
-         //let cell = tableView.dequeueReusableCellWithIdentifier("NewCell") as? aCell 
-        else 
-        { print("No Cell found"); return UITableViewCell()}
-        
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.selectionStyle = UITableViewCellSelectionStyle.Blue
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        
-        let product = getProducts[indexPath.row]
-        cell.titleLabel.text = "\(product.title) (\(product.year))"
-        
-        cell.descriptionLabel.text = product.description
-        cell.descriptionLabel.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-        
-        let img = product.image
-        cell.imgView.image = img
-        
-        
-        return cell
-    }
-   
-    // Override to support rearranging the table view.
-    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        
-        let product = getProducts[fromIndexPath.row]
-        getProducts.removeAtIndex(fromIndexPath.row)
-        getProducts.insert(product, atIndex: toIndexPath.row)
+  
+    // Override to support conditional editing of the table view.
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
     }
     
     // Override to support conditional rearranging of the table view.
@@ -101,25 +59,34 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-        //Override to support conditional editing of the table view.
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        //Return false if you do not want the specified item to be editable.
+    
+    func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
-            // add the action button you want to show when swiping on tableView's cell , in this case add the delete button.
-        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action , indexPath) -> Void in
-                
-                // Your delete code here.....
-                
-        })
-            
-        // You can set its properties like normal button
-        deleteAction.backgroundColor = UIColor.redColor()
-            
-        return [deleteAction]
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        
+        let product = MediaLayers.getProducts[sourceIndexPath.row]
+        MediaLayers.getProducts.removeAtIndex(sourceIndexPath.row)
+        MediaLayers.getProducts.insert(product, atIndex: destinationIndexPath.row)
+        
+        self.tableView.reloadData()
     }
+    
+    
+//    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
+//            // add the action button you want to show when swiping on tableView's cell , in this case add the delete button.
+//        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action , indexPath) -> Void in
+//                
+//                // Your delete code here.....
+//                
+//        })
+//            
+//        // You can set its properties like normal button
+//        deleteAction.backgroundColor = UIColor.redColor()
+//            
+//        return [deleteAction]
+//    }
     
     
     // Override to support editing the table view.
@@ -128,19 +95,20 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
     
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
-            getProducts.removeAtIndex(indexPath.row)
+           MediaLayers.getProducts.removeAtIndex(indexPath.row)
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
         } else if editingStyle == UITableViewCellEditingStyle.Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-            let product = Product(title: "No Entry", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None])
-            getProducts.insert(product, atIndex: indexPath.row)
-            
-            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic) 
-           
+//            let product = Product(title: "No Entry", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None])
+//            getProducts.insert(product, atIndex: indexPath.row)
+//            
+//            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic) 
+//           
         }    
     }
+    
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat 
@@ -179,7 +147,46 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
     
     
 
+    // MARK: - Table view data source
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        
+        self.tableView = tableView
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        self.tableView = tableView
+        return MediaLayers.getProducts.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        self.tableView = tableView
+        
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("Product Cell", forIndexPath: indexPath) as? MediaTableViewCell
+            //let cell = tableView.dequeueReusableCellWithIdentifier("NewCell") as? aCell 
+            else 
+        { print("No Cell found"); return UITableViewCell()}
+        
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell.selectionStyle = UITableViewCellSelectionStyle.Blue
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        
+        let product = MediaLayers.getProducts[indexPath.row]
+        cell.titleLabel.text = "\(product.title) (\(product.year))"
+        
+        cell.descriptionLabel.text = product.description
+        cell.descriptionLabel.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        
+        let img = product.image
+        cell.imgView.image = img
+        
+        
+        return cell
+    }
     
 
     
@@ -210,13 +217,13 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
                     
                     customMediaAtInexPath(destinationViewController, indexPath: indexPath)
                     
-                case "AddItem":
-                    
-                    let newIndexPath = NSIndexPath(forRow: getProducts.count, inSection: 0)
-                    getProducts.append( Product(title: "No Entry", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None]))
-                    
-                    tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: UITableViewRowAnimation.Bottom)
-                    
+//                case "AddItem":
+//                    
+//                    let newIndexPath = NSIndexPath(forRow: getProducts.count, inSection: 0)
+//                    getProducts.append( Product(title: "No Entry", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None]))
+//                    
+//                    tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: UITableViewRowAnimation.Bottom)
+//                    
                     
 //                    guard 
 //                        let cell = sender as? UITableViewCell,
@@ -239,17 +246,17 @@ class CustomProductTableViewController: UIViewController, UITableViewDelegate, U
     func customMediaAtInexPath(destinationViewController: CustomMediaDetailedViewController, indexPath : NSIndexPath ){
         
         destinationViewController.heading = mediaTypeTitle
-        destinationViewController.titleText = getProducts[indexPath.row].title
-        destinationViewController.image = getProducts[indexPath.row].image
-        destinationViewController.descriptionText = getProducts[indexPath.row].description
+        destinationViewController.titleText = MediaLayers.getProducts[indexPath.row].title
+        destinationViewController.image = MediaLayers.getProducts[indexPath.row].image
+        destinationViewController.descriptionText = MediaLayers.getProducts[indexPath.row].description
     }
     
-    func mediaAtInexPath(destinationViewController: PageViewController, indexPath : NSIndexPath ){
-      
-        destinationViewController.heading = mediaTypeTitle
-        destinationViewController.titleText = getProducts[indexPath.row].title
-        destinationViewController.image = getProducts[indexPath.row].image
-        destinationViewController.descriptionText = getProducts[indexPath.row].description
-    }
+//    func mediaAtInexPath(destinationViewController: PageViewController, indexPath : NSIndexPath ){
+//      
+//        destinationViewController.heading = mediaTypeTitle
+//        destinationViewController.titleText = getProducts[indexPath.row].title
+//        destinationViewController.image = getProducts[indexPath.row].image
+//        destinationViewController.descriptionText = getProducts[indexPath.row].description
+//    }
 
 }

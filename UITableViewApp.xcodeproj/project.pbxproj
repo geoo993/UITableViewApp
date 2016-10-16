@@ -26,6 +26,7 @@
 		C7E227C61DAF82360078A39C /* MediaTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E227C51DAF82360078A39C /* MediaTypeTableViewController.swift */; };
 		C7E227D41DAF93DE0078A39C /* ProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E227D31DAF93DE0078A39C /* ProductTableViewController.swift */; };
 		C7F046B91DB2CDC400705CC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F046B81DB2CDC400705CC7 /* Main.storyboard */; };
+		C7F073A61DB2F877002B933C /* MediaLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F073A51DB2F877002B933C /* MediaLayers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +253,7 @@
 		C7E227D31DAF93DE0078A39C /* ProductTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewController.swift; sourceTree = "<group>"; };
 		C7E227D51DAF9A000078A39C /* XCGLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCGLogger.xcodeproj; path = Carthage/Checkouts/XCGLogger/XCGLogger/Library/XCGLogger.xcodeproj; sourceTree = "<group>"; };
 		C7F046B81DB2CDC400705CC7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C7F073A51DB2F877002B933C /* MediaLayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLayers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +383,7 @@
 			children = (
 				C79DF3491DB2C84E00F42B3C /* Product.swift */,
 				C7837E091DAEEFCD00D63851 /* ProductLine.swift */,
+				C7F073A51DB2F877002B933C /* MediaLayers.swift */,
 				C79DF3471DB2C83100F42B3C /* MediaType.swift */,
 				C79DF33B1DB2C7B500F42B3C /* MediaTableViewCell.swift */,
 			);
@@ -701,6 +704,7 @@
 				C7837E0A1DAEEFCD00D63851 /* ProductLine.swift in Sources */,
 				C79DF33C1DB2C7B500F42B3C /* MediaTableViewCell.swift in Sources */,
 				C79DF34A1DB2C84E00F42B3C /* Product.swift in Sources */,
+				C7F073A61DB2F877002B933C /* MediaLayers.swift in Sources */,
 				C79DF34D1DB2C88200F42B3C /* FilmsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

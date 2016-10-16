@@ -37,7 +37,7 @@ class ProductLine {
         return [self.films(), self.videoGames(), self.tvSeries(), self.music (), self.books(), self.countries()]
     }
     
-    private class func films () -> ProductLine
+    class func films () -> ProductLine
     {
         var products = [Product]()
         
@@ -91,7 +91,7 @@ class ProductLine {
     }
     
     
-    private class func videoGames () -> ProductLine
+    class func videoGames () -> ProductLine
     {
         var products = [Product]()
         products.append(Product(title: "Doom", description: "Doom is played entirely from a first-person perspective, with players taking the role of an unnamed marine, as he battles demonic forces from Hell that have been unleashed by the Union Aerospace Corporation on a future-set colonized planet Mars.",imageName: "Doom.jpg", year: 2016, rating: ProductRating.Good, genres: [Genres.Horror]))
@@ -101,28 +101,28 @@ class ProductLine {
         return ProductLine(productType: "Video Games", includedProducts: products)
     }
     
-    private class func books () -> ProductLine
+    class func books () -> ProductLine
     {
         var products = [Product]()
         products.append(Product(title: "No Book", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None]))
         return ProductLine(productType: "Books", includedProducts: products)
     }
     
-    private class func tvSeries () -> ProductLine
+    class func tvSeries () -> ProductLine
     {
         var products = [Product]()
         products.append(Product(title: "No TV Series", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None]))
         return ProductLine(productType: "TV Series", includedProducts: products)
     }
     
-    private class func music () -> ProductLine
+    class func music () -> ProductLine
     {
         var products = [Product]()
         products.append(Product(title: "No Music", description: "Sorry Can't Compile ",imageName: "", year: 0, rating: ProductRating.Unrated, genres: [Genres.None]))
         return ProductLine(productType: "Music", includedProducts: products)
     }
     
-    private class func countries () -> ProductLine
+    class func countries () -> ProductLine
     {
         var products = [Product]()
         

@@ -14,26 +14,13 @@ import UIKit
 
 class MediaTypeTableViewController: UITableViewController {
 
-    
-    var productLines = ProductLine.productLines()
-    lazy var mediaTypes : [MediaType] = {
-        return MediaType.AllMedias() 
-    }()
-    
-    var mediaTypesTitle : [String] = ["Movie", "Video Game", "TV Serie", "Music", "Book", "Countries"]
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = "Media"
         
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        //self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Media Type Cell")
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -48,25 +35,24 @@ class MediaTypeTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func editing(sender: UIBarButtonItem) {
-        
-        if self.tableView.editing == true{
-            
-            self.tableView.setEditing(false, animated: true)
-            self.editButtonItem().style = UIBarButtonItemStyle.Plain
-            self.editButtonItem().title = "Edit"
-        }else{
-            self.tableView.setEditing(true, animated: true)
-            self.editButtonItem().style = UIBarButtonItemStyle.Done
-            self.editButtonItem().title = "Done"
-        }
-       
-    }
+//    @IBAction func editing(sender: UIBarButtonItem) {
+//        
+//        if self.tableView.editing == true{
+//            
+//            self.tableView.setEditing(false, animated: true)
+//            //self.editButtonItem().style = UIBarButtonItemStyle.Plain
+//            //self.editButtonItem().title = "Edit"
+//        }else{
+//            self.tableView.setEditing(true, animated: true)
+//           // self.editButtonItem().style = UIBarButtonItemStyle.Done
+//            //self.editButtonItem().title = "Done"
+//        }
+//       
+//    }
     
-    
-    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return UITableViewCellEditingStyle.None
-    }
+//    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+//        return UITableViewCellEditingStyle.None
+//    }
     
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -87,22 +73,36 @@ class MediaTypeTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         
-        let product = mediaTypes[sourceIndexPath.row]
-        mediaTypes.removeAtIndex(sourceIndexPath.row)
-        mediaTypes.insert(product, atIndex: destinationIndexPath.row)
-        
-        let p = productLines[sourceIndexPath.row]
-        productLines.removeAtIndex(sourceIndexPath.row)
-        productLines.insert(p, atIndex: destinationIndexPath.row)
-        
+        let product = MediaLayers.mediaTypes[sourceIndexPath.row]
+        MediaLayers.mediaTypes.removeAtIndex(sourceIndexPath.row)
+        MediaLayers.mediaTypes.insert(product, atIndex: destinationIndexPath.row)
+
         self.tableView.reloadData()
     }
     
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+       
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            MediaLayers.mediaTypes.removeAtIndex(indexPath.row)
+            // Delete the row from the data source
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+        } else if editingStyle == UITableViewCellEditingStyle.Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            
+        }    
+        
+    }
     
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat 
+    {
+        return 100.0;//Choose your custom row height
+    }
     
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -110,7 +110,7 @@ class MediaTypeTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return mediaTypes.count
+        return MediaLayers.mediaTypes.count
     }
 
     
@@ -125,7 +125,7 @@ class MediaTypeTableViewController: UITableViewController {
         //cell.accessoryView = UIView(frame: CGRectMake(0, 0, 20, 20))
         //cell.accessoryView!.backgroundColor = UIColor.blueColor()
         
-        let media = mediaTypes[indexPath.row]
+        let media = MediaLayers.mediaTypes[indexPath.row]
         
         let img = media.image.imageWithSize(CGSize(width: 80,height: 80), extraMargin: 0)
         
@@ -135,23 +135,11 @@ class MediaTypeTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat 
-    {
-        return 100.0;//Choose your custom row height
-    }
+
     
 
     
-    // Override to support editing the table view.
-//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {
-//            // Delete the row from the data source
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//        } else if editingStyle == .Insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }    
-//    }
-    
+
     
     // MARK: - Navigation
 
@@ -167,56 +155,21 @@ class MediaTypeTableViewController: UITableViewController {
             CustomProductTableViewController
             else { print("Cant Find Product Table View Controller or index path is wrong"); return }
         
+        destinationViewController.mediaTypeTitle = MediaLayers.layers[indexPath.row]
         
-//        var products : [Product] {
-//            var productLines = ProductLine.productLines()
-//            return productLines[indexPath.row].products
-//        }
+        let title = MediaLayers.mediaTypes[indexPath.row].title
+        destinationViewController.media = title
         
-        destinationViewController.mediaTypeTitle = mediaTypesTitle[indexPath.row]
-        destinationViewController.media = mediaTypes[indexPath.row].title
-        destinationViewController.getProducts = productLines[indexPath.row].products
-        destinationViewController.productShown = [Bool](count: productLines[indexPath.row].products.count, repeatedValue: false)
+        guard let productLine = MediaLayers.chosingMedia(title) else { "Couldnd find product line "; return }
         
+        MediaLayers.getProducts.removeAll()
+        MediaLayers.getProducts = productLine.products
         
-    }
-    
-    func chosingMedia (mediaChosen: String) -> Int {
+        destinationViewController.productShown.removeAll()
+        destinationViewController.productShown = [Bool](count: productLine.products.count, repeatedValue: false)
         
-        switch mediaChosen {
-        case "Movies":
-            return 0
-        case "TV Series":
-            return 1
-        case "Video Games":
-            return 2
-        case "Music":
-            return 3
-        case "Books":
-            return 4
-        default:
-            return 0
-        }
         
     }
-    
-    func chosingMediaWithIndexPath (index: Int) -> String {
-        
-        switch index {
-        case 0:
-            return "Movies"
-        case 1:
-            return "TV Series"
-        case 2:
-            return "Video Games"
-        case 3:
-            return "Music"
-        case 4:
-            return "Books"
-        default:
-            return ""
-        }
-        
-    }
+   
 
 }
